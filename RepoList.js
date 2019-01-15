@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Flatlist, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 
-import { listRepos } from './Reducer';
+import { listRepos } from './reducer';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,20 +19,23 @@ class RepoList extends Component {
   componentDidMount() {
     this.props.listRepos('idannyou');
   }
+
   renderItem = ({ item }) => (
     <View style={styles.item}>
       <Text>{item.name}</Text>
     </View>
   );
+
   render() {
     const { repos } = this.props;
-
     return (
-      <FlatList
-        styles={styles.container}
-        data={repos}
-        renderItem={this.renderItem}
-      />
+      <View>
+        <FlatList
+          styles={styles.container}
+          data={repos}
+          renderItem={this.renderItem}
+        />
+      </View>
     );
   }
 }
@@ -43,9 +46,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = {
-  listRepos
-};
+const mapDispatchToProps = { listRepos };
 
 export default connect(
   mapStateToProps,
