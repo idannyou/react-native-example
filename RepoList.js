@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 
-import { listRepos } from './reducer';
+import { listRepos } from './Reducer';
 
 const styles = StyleSheet.create({
   container: {
@@ -42,7 +42,7 @@ class RepoList extends Component {
 
 const mapStateToProps = state => {
   return {
-    repos: state.repos.map(repo => ({ key: repo.id, ...repo }))
+    repos: state.repos.map(repo => ({ key: `${repo.id}`, ...repo }))
   };
 };
 
