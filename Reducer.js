@@ -3,6 +3,7 @@ export const GET_REPOS_SUCCESS = 'GET_REPOS_SUCCESS';
 export const GET_REPOS_FAIL = 'GET_REPOS_FAIL';
 
 export const GET_REPO_INFO = 'GET_REPO_INFO';
+export const GET_REPO_INFO_SUCCESS = 'GET_REPO_INFO_SUCCESS';
 
 export const GET_USER = 'GET_USER';
 export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
@@ -26,6 +27,8 @@ export default function reducer(state = initalState, action) {
       };
     case GET_REPO_INFO:
       return { ...state, loadingInfo: true };
+    case GET_REPO_INFO_SUCCESS:
+      return { ...state, loadingInfo: false, repoInfo: action.payload.data };
     case GET_USER:
       return { ...state, loadingProfile: true };
     case GET_USER_SUCCESS:
