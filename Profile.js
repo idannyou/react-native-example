@@ -15,8 +15,9 @@ class Profile extends Component {
 
   render() {
     const { loadingProfile, user } = this.props;
-    const { login, name } = user;
     if (loadingProfile) return <Text>Loading...</Text>;
+
+    const { login, name } = user;
     return (
       <View>
         <Text>Name: {name}</Text>

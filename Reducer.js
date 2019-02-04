@@ -10,6 +10,8 @@ export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
 
 const initalState = {
   loading: false,
+  loadingInfo: true,
+  loadingProfile: true,
   repos: []
 };
 
