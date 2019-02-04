@@ -5,6 +5,7 @@ export const GET_REPOS_FAIL = 'GET_REPOS_FAIL';
 export const GET_REPO_INFO = 'GET_REPO_INFO';
 
 export const GET_USER = 'GET_USER';
+export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
 
 const initalState = {
   loading: false,
@@ -27,6 +28,8 @@ export default function reducer(state = initalState, action) {
       return { ...state, loadingInfo: true };
     case GET_USER:
       return { ...state, loadingProfile: true };
+    case GET_USER_SUCCESS:
+      return { ...state, loadingProfile: false, user: action.payload.data };
     default:
       return state;
   }
