@@ -15,6 +15,7 @@ class RepoDetail extends Component {
 
   render() {
     const { loadingInfo, repoInfo } = this.props;
+    if (loadingInfo) return <Text>Loading...</Text>;
 
     const {
       description,
@@ -23,8 +24,6 @@ class RepoDetail extends Component {
       name,
       stargazers_count
     } = repoInfo;
-
-    if (loadingInfo) return <Text>Loading...</Text>;
 
     return (
       <View>

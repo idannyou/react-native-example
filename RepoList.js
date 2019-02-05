@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native';
 import { connect } from 'react-redux';
 
 import { listRepos } from './Reducer';
@@ -20,14 +26,19 @@ class RepoList extends Component {
     this.props.listRepos('idannyou');
   }
 
+  handleOnPress = () => {
+    this.props.navigation.navigate('Detail');
+  };
+
   renderItem = ({ item }) => (
-    <View style={styles.item}>
+    <TouchableOpacity onPress={this.handleOnPress} style={styles.item}>
       <Text>{item.name}</Text>
-    </View>
+    </TouchableOpacity>
   );
 
   render() {
     const { repos } = this.props;
+
     return (
       <View>
         <FlatList
