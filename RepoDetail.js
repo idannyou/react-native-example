@@ -5,10 +5,6 @@ import { connect } from 'react-redux';
 import { getRepoDetail } from './Reducer';
 
 class RepoDetail extends Component {
-  static navigationOptions = {
-    title: 'RepoDetail'
-  };
-
   render() {
     const repoInfo = this.props.navigation.getParam('item');
     const {

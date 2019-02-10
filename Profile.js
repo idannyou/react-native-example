@@ -5,12 +5,9 @@ import { connect } from 'react-redux';
 import { getUser } from './Reducer';
 
 class Profile extends Component {
-  static navigationOptions = {
-    title: 'Profile'
-  };
-
   componentDidMount() {
-    this.props.getUser('idannyou');
+    const { getUser, userName } = this.props;
+    getUser(userName);
   }
 
   render() {
@@ -27,10 +24,11 @@ class Profile extends Component {
   }
 }
 
-const mapStateToProps = ({ loadingProfile, user }) => {
+const mapStateToProps = ({ loadingProfile, user, userName }) => {
   return {
     loadingProfile,
-    user
+    user,
+    userName
   };
 };
 

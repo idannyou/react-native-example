@@ -13,6 +13,7 @@ import reducer from './Reducer';
 import RepoList from './RepoList';
 import Profile from './Profile';
 import RepoDetail from './RepoDetail';
+import SignIn from './SignIn';
 
 const client = axios.create({
   baseURL: 'https://api.github.com',
@@ -29,6 +30,7 @@ const Tabs = createBottomTabNavigator({
 });
 
 const Stack = createStackNavigator({
+  SignIn: { screen: SignIn },
   Home: {
     screen: Tabs
   },

@@ -8,11 +8,14 @@ export const GET_REPO_INFO_SUCCESS = 'GET_REPO_INFO_SUCCESS';
 export const GET_USER = 'GET_USER';
 export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
 
+export const SET_USER = 'SET_USER';
+
 const initalState = {
   loading: false,
   loadingInfo: true,
   loadingProfile: true,
-  repos: []
+  repos: [],
+  userName: ''
 };
 
 export default function reducer(state = initalState, action) {
@@ -35,6 +38,8 @@ export default function reducer(state = initalState, action) {
       return { ...state, loadingProfile: true };
     case GET_USER_SUCCESS:
       return { ...state, loadingProfile: false, user: action.payload.data };
+    case SET_USER:
+      return { ...state, userName: action.payload.userName };
     default:
       return state;
   }
@@ -69,6 +74,15 @@ export function getUser(user) {
       request: {
         url: `/users/${user}`
       }
+    }
+  };
+}
+
+export function setUser(userName) {
+  return {
+    type: SET_USER,
+    payload: {
+      userName
     }
   };
 }

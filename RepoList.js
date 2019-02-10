@@ -23,11 +23,12 @@ const styles = StyleSheet.create({
 
 class RepoList extends Component {
   componentDidMount() {
-    this.props.listRepos('idannyou');
+    const userName = this.props.navigation.getParam('userName');
+
+    this.props.listRepos(userName);
   }
 
   handleOnPress = item => () => {
-    console.log({ item });
     this.props.navigation.navigate('Detail', { item });
   };
 
