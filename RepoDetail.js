@@ -9,14 +9,8 @@ class RepoDetail extends Component {
     title: 'RepoDetail'
   };
 
-  componentDidMount() {
-    this.props.getRepoDetail('idannyou', 'react-native-example');
-  }
-
   render() {
-    const { loadingInfo, repoInfo } = this.props;
-    if (loadingInfo) return <Text>Loading...</Text>;
-
+    const repoInfo = this.props.navigation.getParam('item');
     const {
       description,
       forks_count,
@@ -37,18 +31,4 @@ class RepoDetail extends Component {
   }
 }
 
-const mapStateToProps = ({ loadingInfo, repoInfo }) => {
-  return {
-    loadingInfo,
-    repoInfo
-  };
-};
-
-const mapDispatchToProps = {
-  getRepoDetail
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(RepoDetail);
+export default RepoDetail;

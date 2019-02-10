@@ -26,12 +26,13 @@ class RepoList extends Component {
     this.props.listRepos('idannyou');
   }
 
-  handleOnPress = () => {
-    this.props.navigation.navigate('Detail');
+  handleOnPress = item => () => {
+    console.log({ item });
+    this.props.navigation.navigate('Detail', { item });
   };
 
   renderItem = ({ item }) => (
-    <TouchableOpacity onPress={this.handleOnPress} style={styles.item}>
+    <TouchableOpacity onPress={this.handleOnPress(item)} style={styles.item}>
       <Text>{item.name}</Text>
     </TouchableOpacity>
   );
